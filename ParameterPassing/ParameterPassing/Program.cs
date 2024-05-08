@@ -38,6 +38,8 @@ namespace ParameterPassing
         private static void ChangeProductName(Product p)
         {
             Console.WriteLine($"Before change product name: {p.Name}");
+            // p.Name = "Changed Name";
+            p = new Product();
             p.Name = "Changed Name";
             Console.WriteLine($"After change product name: {p.Name}");
         }
