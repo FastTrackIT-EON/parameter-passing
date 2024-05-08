@@ -10,9 +10,14 @@ namespace ParameterPassing
     {
         public static void Main(string[] args)
         {
+            int result;
+            bool canConvert = int.TryParse("1", out result);
+
             int x = 10;
             Console.WriteLine($"Before Calling Increment: {x}");
-            Increment(x);
+            // IncrementByValue(x);
+            // IncrementByRef(ref x);
+            IncrementByRefWithOut(x, out x);
             Console.WriteLine($"After Calling Increment: {x}");
 
             Console.WriteLine("--------------");
@@ -28,10 +33,24 @@ namespace ParameterPassing
             Console.ReadKey();
         }
 
-        private static void Increment(int i)
+        private static void IncrementByValue(int i)
         {
             Console.WriteLine($"Before increment: {i}");
             i = i + 1;
+            Console.WriteLine($"After increment: {i}");
+        }
+
+        private static void IncrementByRef(ref int i)
+        {
+            Console.WriteLine($"Before increment: {i}");
+            i = i + 1;
+            Console.WriteLine($"After increment: {i}");
+        }
+
+        private static void IncrementByRefWithOut(int i, out int incremented)
+        {
+            Console.WriteLine($"Before increment: {i}");
+            incremented = ++i;
             Console.WriteLine($"After increment: {i}");
         }
 
