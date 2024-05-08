@@ -10,10 +10,22 @@ namespace ParameterPassing
     {
         public static void Main(string[] args)
         {
-            int i = 10;
-            Console.WriteLine($"Before Calling Increment: {i}");
-            Increment(i);
-            Console.WriteLine($"After Calling Increment: {i}");
+            int x = 10;
+            Console.WriteLine($"Before Calling Increment: {x}");
+            Increment(x);
+            Console.WriteLine($"After Calling Increment: {x}");
+
+            Console.WriteLine("--------------");
+
+            Product prod = new Product();
+            prod.Id = 1;
+            prod.Name = "Product ABC";
+
+            Console.WriteLine($"Before Calling ChangeProductName: {prod.Name}");
+            ChangeProductName(prod);
+            Console.WriteLine($"After Calling ChangeProductName: {prod.Name}");
+
+            Console.ReadKey();
         }
 
         private static void Increment(int i)
@@ -21,6 +33,13 @@ namespace ParameterPassing
             Console.WriteLine($"Before increment: {i}");
             i = i + 1;
             Console.WriteLine($"After increment: {i}");
+        }
+
+        private static void ChangeProductName(Product p)
+        {
+            Console.WriteLine($"Before change product name: {p.Name}");
+            p.Name = "Changed Name";
+            Console.WriteLine($"After change product name: {p.Name}");
         }
     }
 }
